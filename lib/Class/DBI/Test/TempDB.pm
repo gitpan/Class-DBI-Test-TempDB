@@ -10,7 +10,7 @@ Version 1.0
 
 =cut
 
-our $VERSION = '1.0';
+our $VERSION = '1.01';
 
 =head1 Synopsis
 
@@ -276,6 +276,7 @@ Car::TestDBI->build_connection('/tmp/dbitestbase_test');
 is(Car::TestDBI->dsn(), 'dbi:SQLite:dbname=/tmp/dbitestbase_test', 'dsn()');
 
 $dbh = Car::TestDBI->db_Main;
+Car->clear_object_index;
 
 $dbh->do(qq{
     create table car (
@@ -289,6 +290,7 @@ $dbh->do(qq{
 }) or diag $dbh->errstr;
 
 Car::TestDBI->connect_class_to_test_db('Car');
+
 @cars = Car->retrieve_all;
 $car = $cars[0];
 ok(eq_array([$car->id, $car->make], [1, 'nissan']), 'retrieve data from named file');

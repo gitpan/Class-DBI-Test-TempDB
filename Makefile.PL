@@ -10,7 +10,7 @@ WriteMakefile(
     PL_FILES            => {},
     PREREQ_PM => {
         'Test::More'                          => 0,
-        'Class::DBI'                          => '0.95',
+        'Class::DBI'                          => '0.96',
         'Class::Data::Inheritable'            => '0.02',
         'DBD::SQLite'                         => '0.29',
         'SQL::Translator'                     => '0.05',
